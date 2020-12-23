@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+a {
+  text-decoration: none;
+}
+
+.heroSection {
+  display: flex;
+  justify-content: center;
+  background: url('./bgAave.jpg') no-repeat center;
+  margin: auto;
+  height: 100vh;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -150px;
+}
+
+.heroSection h1 {
+  color: white;
+}

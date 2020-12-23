@@ -40,8 +40,10 @@ const Container = styled.div`
 `
 const Button = styled.button`
   display: block;
+  font-size: 1.5rem;
+  color: white;
   margin: 40px auto;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 50px;
   padding: 20px 50px;
   background-color: transparent;
@@ -65,6 +67,9 @@ class App extends React.Component {
     
   }
 
+  componentDidMount() {
+    this.fetchFlashloans();
+  }
 
   fetchFlashloans = async () => {
     try {
@@ -108,10 +113,16 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <h1>Flashloans</h1>
-        <img src="./logoaave.png" width="150" height="150" alt="logo_aave"/>
-        <Button type="button" onClick={this.fetchFlashloans}>Top 10 Flashloans</Button>
-        <Container>
+
+        <section className="heroSection">
+          <div className="heroContent">
+            <img src="./logoaave.png" width="150" height="150" alt="logo_aave"/>
+            <h1>AAVE FLASHLOANS</h1>
+            <a href="#flashloans"><Button type="button" onClick={this.fetchFlashloans}>See Top 10 Flashloans</Button></a>
+          </div>
+        </section>
+        
+        <Container id="flashloans">
   
           {this.state.flashloans.map(flashloan => 
             <li key={flashloan.id}>
@@ -121,7 +132,6 @@ class App extends React.Component {
             <p><strong>Target:</strong> {flashloan.target}</p>
             </li>)
           }
-
         </Container>
 
     </div>
