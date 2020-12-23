@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logoaave.png';
 import './App.css';
 import axios from 'axios';
 import styled from 'styled-components';
-import ReactDOM from 'react-dom'
+
 
 
 const Container = styled.div`
