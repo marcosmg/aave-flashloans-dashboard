@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 
+//STYLED COMPONENTS
 
 const Container = styled.div`
   display: block;
@@ -67,7 +68,41 @@ const Button = styled.button`
    
   }
 `
+const InputText = styled.input`
+  padding: 12px 20px;
+  margin: 20px 0px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: none;
+`
 
+const InputNumber = styled.input`
+  width: 100px;
+  padding: 12px 0px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 3rem;
+  font-family: 'Avenir Bold';
+
+  
+`
+
+//COMPONENTS
+
+const SearchAddress = (props) => {
+  return <InputText type="text" placeholder="Search By Tx Id"/>;
+}
+
+const SelectQueryNumber = (props) => {
+  return <InputNumber type="number" />;
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -85,7 +120,7 @@ class App extends React.Component {
   fetchFlashloans = async () => {
     try {
 
-      const val = 1;
+      const val = 10;
 
     const query = {
       query: `
@@ -120,9 +155,6 @@ class App extends React.Component {
     }
   }
 
- 
-
-
 
   render() {
 
@@ -133,7 +165,10 @@ class App extends React.Component {
           <div className="heroContent">
             <img src="./logoaave.png" width="150" height="150" alt="logo_aave"/>
             <h1>AAVE FLASHLOANS</h1>
-            <a href="#flashloans"><Button type="button" onClick={this.fetchFlashloans}>See Top 10 Flashloans</Button></a>
+            <h2>Search Top <SelectQueryNumber/> Flashloans</h2>
+            <p>OR</p>
+            <SearchAddress/>
+            <a href="#flashloans"><Button type="submit" onClick={this.fetchFlashloans}>Find Flashloans</Button></a>
           </div>
         </section>
         
